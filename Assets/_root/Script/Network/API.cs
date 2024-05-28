@@ -64,7 +64,7 @@ namespace _root.Script.Network
         public static Networking.Get<DeckResponse> GetActiveDeck()
             => new("/api/inventory/active");
 
-        public static Networking.Post<Void> ApplyDeck(ApplyDeckRequest req)
+        public static Networking.Put<Void> ApplyDeck(ApplyDeckRequest req)
            => new("/api/inventory/apply", req);
     }
 }
