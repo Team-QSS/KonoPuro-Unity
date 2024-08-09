@@ -222,7 +222,7 @@ namespace _root.Script.Title
 
             if (UserData.Instance.gold == null)
                 API.GetGold()
-                    .OnResponse(responses =>
+                    .OnResponse(response =>
                     {
                         // Debug.LogError("Default Cards");
                         //   foreach (var (key, value) in responses)
@@ -233,7 +233,8 @@ namespace _root.Script.Title
                         //    Debug.Log($"Idea : {value.idea}");
                         //    Debug.Log($"Motive : {value.motive}");
                         //   }
-                        UserData.Instance.gold = responses.gold; })
+                        UserData.Instance.gold = response.gold;
+                        Debug.LogError(UserData.Instance.gold); })
                     .OnError(body => Debug.Log("Gold Load Failed"))
                     .Build();
         }
